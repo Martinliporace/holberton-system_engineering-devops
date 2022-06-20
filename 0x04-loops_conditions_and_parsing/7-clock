@@ -4,23 +4,28 @@
 
 h=0
 m=1
+
 echo "Hour: "$h
-while [ $h -lt 12 ]
+while [ $h -lt 13 ]
 	do
 	while [ $m -lt 59 ]
 
-	  echo $m
-	  	((m++))
-
+		echo $m
+		((m++))
 		do
 
-  	if [[ "$m" == '60' ]]
-		then
+	  	if [[ "$m" == '60' ]]
+			then
 			((h++))
-			echo "Hour: "$h
+			if [[ "$h" == '13' ]]
+				then
+				break
+
+			else
+			    echo "Hour: "$h
 			m=1
+		fi
+		fi
 
-fi
-
-done
+	done
 done
